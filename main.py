@@ -1,4 +1,4 @@
-#### 가우시안블러 처리해서 차이점 시각화만 시켜놓은거
+##### 가우시안블러 처리해서 차이점 시각화만 시켜놓은거
 import cv2
 import numpy as np
 
@@ -43,6 +43,7 @@ while True:
     key = cv2.waitKey(20)  # cv2.waitKey()는 ESC를 누르면 27을 RETURN
     if key == 27:
         break
+
 
 cap.release()
 cv2.destroyAllWindows()
