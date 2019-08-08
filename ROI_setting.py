@@ -1,16 +1,15 @@
 import cv2
 import os
 
-
 image_folder = '/home/chun/PycharmProjects/openCV_2/images'
-
 
 mouse_is_pressing = False
 start_x, starty = -1, -1
 flag = 0
+img = None
 
 def mouse_callback(event,x,y,flags,param):
-    global start_x, start_y,mouse_is_pressing, flag
+    global start_x, start_y,mouse_is_pressing, flag, img
 
     img_result = img_color.copy()
 
@@ -52,13 +51,15 @@ for n, image_file in enumerate(os.scandir(image_folder)):
     cv2.imshow("img_color", img_color)
     cv2.setMouseCallback('img_color', mouse_callback)
 
+
     key = cv2.waitKey(0) & 0xff
     if key == ord('q'):
-        # 지정된 경로에 저장
-        continue
-    else :
-        break
+        cv2.imwrite('img_save/'+str(n)+'.jpg', img)
 
+        # 캡처된 녀석 일단 저장하는 기능부터 찾아보기 -> 지정된 경로에 저장할 수 있는가 찾아보기 -> 구현
+        continue
+    else:
+        break
 
 
 
