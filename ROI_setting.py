@@ -8,6 +8,9 @@ start_x, starty = -1, -1
 flag = 0
 img = None
 
+### 함수 선언 ###
+
+ # ROI설정 함수
 def mouse_callback(event,x,y,flags,param):
     global start_x, start_y,mouse_is_pressing, flag, img
 
@@ -51,32 +54,13 @@ for n, image_file in enumerate(os.scandir(image_folder)):
     cv2.imshow("img_color", img_color)
     cv2.setMouseCallback('img_color', mouse_callback)
 
-
     key = cv2.waitKey(0) & 0xff
     if key == ord('q'):
         cv2.imwrite('img_save/'+str(n)+'.jpg', img)
+        continue
 
-        # 캡처된 녀석 일단 저장하는 기능부터 찾아보기 -> 지정된 경로에 저장할 수 있는가 찾아보기 -> 구현
+    elif key == ord('e'):
         continue
     else:
         break
-
-
-
-
-
-    #image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    #ax.imshow(image)
-    #plt.show()
-
-
-#img_color = cv2.imread('giraffe.jpg', cv2.IMREAD_COLOR )
-#cv2.imshow("img_color", img_color)
-#
-
-
-
-#cv2.destroyAllWindows()
-
-# 해야할 일 : 지정된 경로에서 이미지를 순차적으로 가져와서 캡쳐하는거는 또 다른 폴더에다가 차곡차곡 저장하는 알고리즘
 
